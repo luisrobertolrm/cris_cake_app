@@ -1,4 +1,0 @@
-# Referenced at /Users/luisrobertolrm/Developer/Projetos/cris_cake_app/build/app/intermediates/merged_manifests/debug/AndroidManifest.xml:26
--keep class androidx.core.app.CoreComponentFactory { <init>(); }
-# Referenced at /Users/luisrobertolrm/Developer/Projetos/cris_cake_app/build/app/intermediates/merged_manifests/debug/AndroidManifest.xml:26
--keep class io.flutter.app.FlutterApplication { <init>(); }
