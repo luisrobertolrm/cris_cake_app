@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "988060672379",
+    "firebase_url": "https://criscakes-80588.firebaseio.com",
+    "project_id": "criscakes-80588",
+    "storage_bucket": "criscakes-80588.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988060672379:android:f32bad569f81f44e93ddde",
+        "android_client_info": {
+          "package_name": "com.example.cris_cake_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988060672379-6cjifsndfd7hcivu00d5lfid43k6eji2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cris_cake_app",
+            "certificate_hash": "525c1df19240e87aa23b8171b5e05520f01fadb4"
+          }
+        },
+        {
+          "client_id": "988060672379-j7thpvfrs05plk2h64favptnmp2jempd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUzioqSKnoyF5ONAfRLEcGNc7LE2o8IU0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "988060672379-j7thpvfrs05plk2h64favptnmp2jempd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "988060672379-1ut34g8bcorac3ihk2a8u4m2cscbrkkc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.crisCakeApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

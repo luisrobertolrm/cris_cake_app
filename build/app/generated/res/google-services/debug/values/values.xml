@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">988060672379-j7thpvfrs05plk2h64favptnmp2jempd.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://criscakes-80588.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">988060672379</string>
+    <string name="google_api_key" translatable="false">AIzaSyCUzioqSKnoyF5ONAfRLEcGNc7LE2o8IU0</string>
+    <string name="google_app_id" translatable="false">1:988060672379:android:f32bad569f81f44e93ddde</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCUzioqSKnoyF5ONAfRLEcGNc7LE2o8IU0</string>
+    <string name="google_storage_bucket" translatable="false">criscakes-80588.appspot.com</string>
+    <string name="project_id" translatable="false">criscakes-80588</string>
+</resources>
