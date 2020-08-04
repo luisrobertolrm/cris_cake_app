@@ -1,4 +1,4 @@
-#Thu Jul 09 00:42:59 BRT 2020
+#Tue Aug 04 00:55:24 BRT 2020
 base.0=/Users/luisrobertolrm/Developer/Projetos/cris_cake_app/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.1=classes2.dex
 renamed.1=classes2.dex

@@ -1,3 +1,6 @@
+import 'package:cris_cake_app/common/AppScaffold.dart';
+import 'package:cris_cake_app/common/userLoggedIn.dart';
+import 'package:cris_cake_app/products.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
@@ -14,63 +17,80 @@ class _LoginState extends State<Login> {
   static final FacebookLogin facebookSignIn = new FacebookLogin();
   FirebaseUser user;
 
+  Widget content;
+
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Cris Cakes'),
-      ),
-      body: Container(
-          child: Center(
-        child: Container(
-          width: 330,
-          padding: EdgeInsets.all(15),
-          child: Column(
-            children: <Widget>[
-              GestureDetector(
-                onTap: _loginFacebook,
-                child: Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black45),
-                      borderRadius: BorderRadius.all(Radius.circular(40))),
-                  child: Row(
-                    children: <Widget>[
-                      Image.asset(
-                        'assets/facebook.jpeg',
-                        height: 65,
-                        width: 65,
-                      ),
-                      Text('Login com Facebook')
-                    ],
-                  ),
+  void initState() {
+    try {
+      this._auth.signInAnonymously();
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  _LoginState() {
+    this._auth.onAuthStateChanged.listen((user) {
+      if (user != null) {
+        setState(() {
+          if (user != null) UserLoggedIn.url = user.photoUrl;
+        });
+
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Produtos(),
+            ));
+      }
+    });
+
+    this.content = Column(
+      children: <Widget>[
+        GestureDetector(
+          onTap: _loginFacebook,
+          child: Container(
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.black45),
+                borderRadius: BorderRadius.all(Radius.circular(40))),
+            child: Row(
+              children: <Widget>[
+                Image.asset(
+                  'assets/facebook.jpeg',
+                  height: 65,
+                  width: 65,
                 ),
-              ),
-              Container(
-                height: 15,
-              ),
-              GestureDetector(
-                onTap: _signinGoogle,
-                child: Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black45),
-                      borderRadius: BorderRadius.all(Radius.circular(40))),
-                  child: Row(
-                    children: <Widget>[
-                      Image.asset(
-                        'assets/google.jpeg',
-                        height: 60,
-                        width: 60,
-                      ),
-                      Text('Login com Google')
-                    ],
-                  ),
-                ),
-              )
-            ],
+                Text('Login com Facebook')
+              ],
+            ),
           ),
         ),
-      )),
+        Container(
+          height: 15,
+        ),
+        GestureDetector(
+          onTap: _signinGoogle,
+          child: Container(
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.black45),
+                borderRadius: BorderRadius.all(Radius.circular(40))),
+            child: Row(
+              children: <Widget>[
+                Image.asset(
+                  'assets/google.jpeg',
+                  height: 60,
+                  width: 60,
+                ),
+                Text('Login com Google')
+              ],
+            ),
+          ),
+        )
+      ],
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold('Login', this.content).build(context);
   }
 
   _signinGoogle() async {
@@ -84,17 +104,22 @@ class _LoginState extends State<Login> {
 
     try {
       bool isSignedIn = await _googleSignIn.isSignedIn();
+
+      var teste = this._auth.currentUser;
+
       if (isSignedIn) {
         // if so, return the current user
         user = await _auth.currentUser();
       } else {
         final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+
         final GoogleSignInAuthentication googleAuth =
             await googleUser.authentication;
         // get the credentials to (access / id token)
         // to sign in via Firebase Authentication
         final AuthCredential credential = GoogleAuthProvider.getCredential(
             accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
+
         user = (await _auth.signInWithCredential(credential)).user;
       }
     } catch (error) {

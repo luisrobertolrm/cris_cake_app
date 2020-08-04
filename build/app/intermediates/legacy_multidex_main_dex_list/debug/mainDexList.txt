@@ -784,6 +784,12 @@ com/google/firebase/auth/AdditionalUserInfo.class
 com/google/firebase/auth/internal/zzf.class
 com/google/firebase/auth/zzaf.class
 com/google/firebase/auth/zzy.class
+com/google/firebase/database/Exclude.class
+com/google/firebase/database/IgnoreExtraProperties.class
+com/google/firebase/database/PropertyName.class
+com/google/firebase/database/ThrowOnExtraProperties.class
+com/google/firebase/database/annotations/NotNull.class
+com/google/firebase/database/annotations/Nullable.class
 com/google/firebase/iid/MessagingChannel.class
 com/google/firebase/iid/zzau.class
 com/google/firebase/platforminfo/AutoValue_LibraryVersion.class
